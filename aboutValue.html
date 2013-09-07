@@ -1,0 +1,24 @@
+﻿<html>
+	<head>
+		<title>JavaScript 对象的属性值</title>
+		<meta charset="gbk">
+		
+		<script type="text/javascript">
+			function setNameToUpperCase() {
+				var nameObj = document.getElementById("iName");
+				var v_value = nameObj.value;
+				// 下面这个语句无效。使用了这个，alert 将无效，不会再弹出
+				//var v_value = nameObj.getValue();
+				alert(v_value);
+				nameObj.value = v_value.toUpperCase();
+				// 无效，不会重新赋值
+				//nameObj.setValue(v_value.toUpperCase());
+			}
+		</script>
+		
+		<body>
+			Enter Your Name:
+			<input type="text" id="iName" onblur="setNameToUpperCase()"/>
+		</body>
+	</head>
+</html>
