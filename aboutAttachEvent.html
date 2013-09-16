@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>AttachEvent 的使用</title>
+
+<script type="text/javascript">
+	var defaultValue = "Say Something!!";
+	
+	function init() {
+		var iWordObj = document.getElementById("iWord");
+		
+		iWordObj.attachEvent("onfocus", function(e){clean(iWordObj);}, false);
+		iWordObj.attachEvent("onblur", function(e) {setDefault(iWordObj);}, false);
+		
+		/* 网上说 Firefox 用这个，我试了下，咋没用呢？
+		iWordObj.addEventListener("onfocus", function(e){clean(iWordObj);}, false);
+		iWordObj.addEventListener("onblur", function(e) {setDefault(iWordObj);}, false)
+		*/
+	}
+	
+	function clean(obj) {
+		// 如果新值等于默认值，清空
+		if (defaultValue == obj.value) {
+			obj.value="";
+		}
+	}
+	
+	function setDefault(obj) {
+		//
+		if (obj.value == "") {
+			obj.value = defaultValue;
+			alert("Oh, you said nothing.");
+		} else {
+			alert("You said: " + obj.value);
+		}
+	}
+</script>
+</head>
+<body onload="init()">
+	Say Something:
+	<input type="text" id="iWord" value="Say Something!!"/>
+</body>
+</html>
