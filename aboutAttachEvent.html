@@ -10,8 +10,8 @@
 	function init() {
 		var iWordObj = document.getElementById("iWord");
 		
-		iWordObj.attachEvent("onfocus", function(e){clean(iWordObj);}, false);
-		iWordObj.attachEvent("onblur", function(e) {setDefault(iWordObj);}, false);
+		iWordObj.attachEvent("onfocus", function(e){clean(iWordObj);});
+		iWordObj.attachEvent("onblur", function(e) {setDefault(iWordObj);});
 		
 		/* 网上说 Firefox 用这个，我试了下，咋没用呢？
 		iWordObj.addEventListener("onfocus", function(e){clean(iWordObj);}, false);
