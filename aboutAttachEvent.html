@@ -27,7 +27,10 @@
 	}
 	
 	function setDefault(obj) {
-		//
+		/*
+		 * 如果输入的为空（""），则将值重新设为默认值（defaultValue）
+		 * 否则，弹出输入的内容
+		 */
 		if (obj.value == "") {
 			obj.value = defaultValue;
 			alert("Oh, you said nothing.");
