@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+	/** 定义***/
+	function JSMap() {
+		var map_ = new Object();
+		
+		/*** put **/
+		map_.put = function(key, value) {
+			map_[key+'_'] = value;
+		};
+		
+		/*** get **/
+		map_.get = function(key) {
+			return map_[key+'_'];
+		};
+		
+		/*** keyset **/
+		map_.keyset = function() {
+			var ret = "";
+			
+			for(var p in map_) {
+				if (typeof p == 'string' && p.substring(p.length - 1) == "_") {
+					ret += ",";
+					ret += p.substring(0, p.length - 1);
+				}
+			}
+			
+			if ("" == ret) {
+				return ret.split(",");
+			} else {
+				return ret.substring(1).split(",");
+			}
+		}
+		
+		return map_;
+	}
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		/** 应用 **/
+		var map = new JSMap();
+		
+		map.put(1, '一');
+		map.put("Mon", '星期一');
+		
+		/*
+		alert(map.get(1));
+		alert(map.get("Mon"));
+		alert(map.get("mon"));
+		
+		alert(map.keyset());
+		*/
+		
+		/*
+		 * 遍历Map
+		 */
+		for (var x in map.keyset()) {
+			var key = map.keyset()[x];
+			
+			alert(map.get(key));
+		}
+	</script>
+</body>
+</html>
